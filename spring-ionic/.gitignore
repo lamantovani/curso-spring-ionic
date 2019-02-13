@@ -1,0 +1,12 @@
+/target/
+/.vscode
+/node_modules
+.sass-cache
+.settings
+/dist
+/build
+.classpath
+.project
+.idea
+/web/WEB-INF/classes
+/bin/
