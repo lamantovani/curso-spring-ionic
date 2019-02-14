@@ -10,4 +10,6 @@ public interface PerfilRepository extends MongoRepository<Perfil, String> {
 
 	List<Perfil> findByNomeLikeIgnoreCase();
 
+	Perfil findByNome(String nome);
+
 }

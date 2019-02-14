@@ -26,6 +26,14 @@ public class Usuario {
 	public Usuario() {
 	}
 	
+	public Usuario(String nome, String email, String senha, List<Perfil> perfis) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.perfis = perfis;
+	}
+
 	public Usuario(Usuario usuario) {
 		this.nome = usuario.getNome();
 		this.idade = usuario.getIdade();
