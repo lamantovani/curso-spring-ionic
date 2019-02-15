@@ -45,6 +45,10 @@ public class UsuarioService {
 		Pageable pages = new PageRequest(page, count);
 		return usuarioRepository.findAll(pages);
 	}
+	
+	public Usuario findByEmail(String email) {
+		return usuarioRepository.findByEmail(email);
+	}
 
 
 }

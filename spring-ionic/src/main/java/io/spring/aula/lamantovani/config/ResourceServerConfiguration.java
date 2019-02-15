@@ -23,8 +23,10 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 			.invalidateHttpSession(true) //
 			.clearAuthentication(true) //
 			.and().authorizeRequests() //
-			.antMatchers(HttpMethod.GET, "/usuario/**").hasAnyRole("ADMIN") //
-			.anyRequest().denyAll();
+			.antMatchers("/perfil/**").hasAnyRole("ADMIN, OREIA") //
+            .antMatchers("/usuario/**").hasAnyRole("ADMIN, OREIA") //
+			.anyRequest().denyAll() //
+			.antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
 	}
 
 }
