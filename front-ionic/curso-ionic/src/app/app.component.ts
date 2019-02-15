@@ -1,39 +1,25 @@
-import { Component } from '@angular/core';
+import { LoginPage } from './../pages/login/login';
+import { Component, ViewChild } from '@angular/core';
+import {Nav, Platform} from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.html'
 })
-export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    }
-  ];
+export class ComponentInicial {
+  @ViewChild(Nav) nav: Nav;
+  rootPage:any = TabsPage;
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
-  }
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+    this.rootPage = LoginPage;
+
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashScreen.hide();
     });
   }
 }

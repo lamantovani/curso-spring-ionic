@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "2ee67354-6da5-446e-9f25-2670f367f1a3",
+		"name": "CURSO-SPRING-IONIC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "salvar-usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"\",\n\t\"email\": \"\",\n\t\"senha\": \"\",\n\t\"idade\": 20,\n\t\"perfis\": [\n\t\t\t{\n\t\t\t\t\"id\": \"\",\n\t\t\t\t\"nome\": \"\"\n\t\t\t}\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "salvar-perfil",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar-usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar-perfil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/perfil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"perfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authentication-oauth2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "mobile",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token?grant_type=password&username=Admin&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "Admin"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

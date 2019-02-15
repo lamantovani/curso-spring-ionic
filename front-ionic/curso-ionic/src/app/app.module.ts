@@ -1,27 +1,50 @@
-import { NgModule } from '@angular/core';
+import { Utils } from './../entity/Utils';
+import { Http, HttpModule } from '@angular/http';
+import { LoginPageModule } from './../pages/login/login.module';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { ComponentInicial } from './app.component';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [
+    ComponentInicial,
+    AboutPage,
+    ContactPage,
+    HomePage,
+    TabsPage
+    
+  ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule
+    HttpModule,
+    LoginPageModule,
+    IonicModule.forRoot(ComponentInicial)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    ComponentInicial,
+    AboutPage,
+    ContactPage,
+    HomePage,
+    TabsPage
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
+    Utils,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginServiceProvider
+  ]
 })
 export class AppModule {}

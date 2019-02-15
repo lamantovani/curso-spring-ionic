@@ -1,8 +1,11 @@
 export class Usuario{
-    id: string;
-    nome: string;
-    email: string;
-    password: string;
-    idade: number;
-    perfis: any[];
+    public nome:string;
+    public email:string;
+    public senha:string;
+    constructor(){
+        this.nome = "";
+        this.email = "";
+        this.senha = "";
+    }
+
 }
